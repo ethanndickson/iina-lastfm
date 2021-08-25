@@ -41,3 +41,5 @@ The script won't work unless the track you're playing has both of these metadata
 You can see the raw metadata of the track when iina is running with
 
 ```echo '{ "command": ["get_property", "metadata"] }' | nc -U  /tmp/mpv-socket```
+
+If the program is scrobbling when you run `scrobble.pl` manually but not automatically, check iina.log for lua errors.

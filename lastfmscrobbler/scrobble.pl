@@ -25,13 +25,22 @@ $mediaTitle = $metaData->{'data'}->{'Title'};
 if (not $mediaTitle) {
 	$mediaTitle = $metaData->{'data'}->{'title'};
 }
+if (not $mediaTitle) {
+	$mediaTitle = $metaData->{'data'}->{'TITLE'};
+}
 $mediaArtist = $metaData->{'data'}->{'Artist'};
 if (not $mediaArtist) {
 	$mediaArtist = $metaData->{'data'}->{'artist'};
 }
+if (not $mediaArtist) {
+	$mediaArtist = $metaData->{'data'}->{'ARTIST'};
+}
 $mediaAlbum = $metaData->{'data'}->{'Album'};
 if (not $metaData) {
 	$metaData = $metaData->{'data'}->{'album'};
+}
+if (not $metaData) {
+	$metaData = $metaData->{'data'}->{'ALBUM'};
 }
 $mediaDuration = $durationData->{'data'};
 $mediaTimestamp = time();
