@@ -25,3 +25,19 @@ If you want to run this on mpv for Windows or Linux make sure you have netcat an
 $USERNAME = "myUsername"
 $PASSWORD = "myPassword"
 ```
+
+
+# Debugging
+With iina open and paused playing a track, run `scrobble.pl` directly and check the error.
+
+ `perl ~/.config/mpv/lastfmscrobbler/scrobble.pl`
+
+The script won't work unless the track you're playing has both of these metadata tags.
+
+`'Title'|'title'`
+
+`'Artist'|'artist'` 
+
+You can see the raw metadata of the track when iina is running with
+
+```echo '{ "command": ["get_property", "metadata"] }' | nc -U  /tmp/mpv-socket```
