@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use JSON;
+use JSON:PP;
 use Data::Dumper;
 use LWP::UserAgent;
 use Digest::MD5 qw(md5_hex);
