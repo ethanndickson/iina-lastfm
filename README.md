@@ -34,9 +34,9 @@ With iina open and paused playing a track, run `scrobble.pl` directly and check 
 
 The script won't work unless the track you're playing has both of these metadata tags.
 
-`'Title'|'title'`
+`'TITLE'|'Title'|'title'`
 
-`'Artist'|'artist'` 
+`'ARTIST'|'Artist'|'artist'` 
 
 You can see the raw metadata of the track when iina is running with
 
