@@ -45,13 +45,13 @@ if (not $metaData) {
 $mediaDuration = $durationData->{'data'};
 $mediaTimestamp = time();
 if (not $mediaTitle) {
-	die;
+	die("Couldn't find a title for this track in metadata, not scrobbling");
 }
 if (not $mediaArtist) {
-	die;
+	die("Couldn't find an artist for this track in metadata, not scrobbling")
 }
 if (not $mediaDuration) {
-	die;
+	die("Couldn't get track duration")
 }
 $authSig = md5_hex("api_key".$APIKEY."method"."auth.getMobileSession"."password".$PASSWORD."username".$USERNAME.$APISECRET);
 $auth = $lfmUrl."?method=auth.getMobileSession&username=".$USERNAME."&password=".$PASSWORD."&api_key=".$APIKEY."&api_sig=".$authSig;
@@ -60,7 +60,7 @@ $authOutput = Dumper($authOutput);
 if ($authOutput =~ /<key>(.*?)<\/key>/) {
 	$sessionKey = $1;
 } else {
-	die();
+	die("Failed auth, make sure you entered your login details correctly");
 }
 if ($mediaAlbum) { # if the track metadata has an album tied to it
 	$scrobbleSig = md5_hex("album".$mediaAlbum."api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET);
