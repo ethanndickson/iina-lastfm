@@ -36,11 +36,11 @@ if (not $mediaArtist) {
 	$mediaArtist = $metaData->{'data'}->{'ARTIST'};
 }
 $mediaAlbum = $metaData->{'data'}->{'Album'};
-if (not $metaData) {
-	$metaData = $metaData->{'data'}->{'album'};
+if (not $mediaAlbum) {
+	$mediaAlbum = $metaData->{'data'}->{'album'};
 }
-if (not $metaData) {
-	$metaData = $metaData->{'data'}->{'ALBUM'};
+if (not $mediaAlbum) {
+	$mediaAlbum = $metaData->{'data'}->{'ALBUM'};
 }
 $mediaDuration = $durationData->{'data'};
 $mediaTimestamp = time();
