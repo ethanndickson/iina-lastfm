@@ -53,7 +53,7 @@ if (not $mediaArtist) {
 if (not $mediaDuration) {
 	die("Couldn't get track duration")
 }
-$authSig = md5_hex("api_key".$APIKEY."method"."auth.getMobileSession"."password".$PASSWORD."username".$USERNAME.$APISECRET);
+$authSig = md5_hex(Encode::encode_utf8("api_key".$APIKEY."method"."auth.getMobileSession"."password".$PASSWORD."username".$USERNAME.$APISECRET));
 $auth = $lfmUrl."?method=auth.getMobileSession&username=".$USERNAME."&password=".$PASSWORD."&api_key=".$APIKEY."&api_sig=".$authSig;
 $authOutput = $ua->post($auth);
 $authOutput = Dumper($authOutput);
@@ -63,10 +63,10 @@ if ($authOutput =~ /<key>(.*?)<\/key>/) {
 	die("Failed auth, make sure you entered your login details correctly");
 }
 if ($mediaAlbum) { # if the track metadata has an album tied to it
-	$scrobbleSig = md5_hex("album".$mediaAlbum."api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET);
+	$scrobbleSig = md5_hex(Encode::encode_utf8("album".$mediaAlbum."api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET));
 	$scrobbleUrl = $lfmUrl."?method=track.scrobble&artist=".$mediaArtist."&track=".$mediaTitle."&timestamp=".$mediaTimestamp."&album=".$mediaAlbum."&api_key=".$APIKEY."&api_sig=".$scrobbleSig."&sk=".$sessionKey;
 } else { 
-	$scrobbleSig = md5_hex("api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET);
+	$scrobbleSig = md5_hex(Encode::encode_utf8("api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET));
 	$scrobbleUrl = $lfmUrl."?method=track.scrobble&artist=".$mediaArtist."&track=".$mediaTitle."&timestamp=".$mediaTimestamp."&api_key=".$APIKEY."&api_sig=".$scrobbleSig."&sk=".$sessionKey;
 }
 $scrobbleOutput = $ua->post($scrobbleUrl);
