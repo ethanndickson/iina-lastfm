@@ -54,6 +54,7 @@ if (not $mediaDuration) {
 	die("Couldn't get track duration")
 }
 $authSig = md5_hex(Encode::encode_utf8("api_key".$APIKEY."method"."auth.getMobileSession"."password".$PASSWORD."username".$USERNAME.$APISECRET));
+$PASSWORD =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
 $auth = $lfmUrl."?method=auth.getMobileSession&username=".$USERNAME."&password=".$PASSWORD."&api_key=".$APIKEY."&api_sig=".$authSig;
 $authOutput = $ua->post($auth);
 $authOutput = Dumper($authOutput);
