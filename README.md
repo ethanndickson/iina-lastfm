@@ -3,7 +3,7 @@
 
 No dependencies! Runs on macOS Big Sur with just iina installed - thanks core Perl!
 
-Last tested on iina 1.2.0.
+Last tested on iina 1.3.0.
 
 If you want to run this on mpv for Windows or Linux make sure you have netcat and perl on your PATH.
 

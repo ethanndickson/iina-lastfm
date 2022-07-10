@@ -65,9 +65,13 @@ if ($authOutput =~ /<key>(.*?)<\/key>/) {
 }
 if ($mediaAlbum) { # if the track metadata has an album tied to it
 	$scrobbleSig = md5_hex(Encode::encode_utf8("album".$mediaAlbum."api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET));
+	$mediaArtist =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
+    $mediaTitle =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
 	$scrobbleUrl = $lfmUrl."?method=track.scrobble&artist=".$mediaArtist."&track=".$mediaTitle."&timestamp=".$mediaTimestamp."&album=".$mediaAlbum."&api_key=".$APIKEY."&api_sig=".$scrobbleSig."&sk=".$sessionKey;
 } else { 
 	$scrobbleSig = md5_hex(Encode::encode_utf8("api_key".$APIKEY."artist".$mediaArtist."method"."track.scrobble"."sk".$sessionKey."timestamp".$mediaTimestamp."track".$mediaTitle.$APISECRET));
+	$mediaArtist =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
+    $mediaTitle =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
 	$scrobbleUrl = $lfmUrl."?method=track.scrobble&artist=".$mediaArtist."&track=".$mediaTitle."&timestamp=".$mediaTimestamp."&api_key=".$APIKEY."&api_sig=".$scrobbleSig."&sk=".$sessionKey;
 }
 $scrobbleOutput = $ua->post($scrobbleUrl);
