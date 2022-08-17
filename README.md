@@ -22,8 +22,8 @@ If you want to run this on mpv for Windows or Linux make sure you have netcat an
 
 4. Open `lastfmscrobbler/scrobble.pl` and modify the following lines with your last.fm login:
 ```
-$USERNAME = "myUsername"
-$PASSWORD = "myPassword"
+$USERNAME = 'myUsername'
+$PASSWORD = 'myPassword'
 ```
 
 

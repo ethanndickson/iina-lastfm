@@ -10,8 +10,8 @@ sleep(3);
 $ua = LWP::UserAgent->new();
 $lfmUrl = "http://ws.audioscrobbler.com/2.0";
 
-$USERNAME = ""; # CHANGE ME
-$PASSWORD = ""; # CHANGE ME
+$USERNAME = ''; # CHANGE ME
+$PASSWORD = ''; # CHANGE ME
 $APIKEY = "3176eb0bd0ff5d1c8f15d94e3b3c98a8"; # Change this if it stops working
 $APISECRET = "2918fac730f44f543d2568f9976ec276"; # Change this if it stops working
 
