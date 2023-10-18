@@ -3,4 +3,4 @@ function track_load()
     os.execute("perl ~/.config/mpv/lastfmscrobbler/scrobble.pl")
 end
 
-mp.register_event("start-file", track_load)
+mp.register_event("file-loaded", track_load)
