@@ -1,9 +1,9 @@
 # iina-lastfm
 [mpv](https://github.com/mpv-player/mpv) script to scrobble songs played through [iina](https://github.com/iina/iina) to last.fm, since nobody else has made one.
 
-No dependencies! Runs on macOS Big Sur with just iina installed - thanks core Perl!
+No dependencies! Runs on macOS Big Sur(+) with just iina installed - thanks core Perl!
 
-Last tested on iina 1.3.0.
+Last tested on iina 1.3.5 & macOS Ventura 13.5.
 
 If you want to run this on mpv for Windows or Linux make sure you have netcat and perl on your PATH.
 
