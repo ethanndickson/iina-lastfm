@@ -5,7 +5,7 @@ No dependencies! Runs on macOS Big Sur(+) with just iina installed.
 
 Last tested on iina 1.3.5 & macOS Ventura 13.5.
 
-If you want to run this on mpv for Windows or Linux make sure `/usr/bin/nc` exists.
+You could probably get this working for mpv on other operating systems.
 
 # Installing 
 
