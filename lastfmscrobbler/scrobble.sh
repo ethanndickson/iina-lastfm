@@ -6,8 +6,13 @@ tentativeMetadata=$(echo '{ "command": ["get_property", "metadata"] }' | /usr/bi
 
 sleep 4
 
-USERNAME="" # CHANGE ME
-PASSWORD="" # CHANGE ME
+USERNAME='' # CHANGE ME
+
+KEYCHAIN_SERVICE='com.iina.lastfm'
+# Retrieve password from the keychain
+# Ensure you've added it first using `security add-generic-password -a "<lastfmUsername> -s "com.iina.lastfm" -w "<password>"`
+PASSWORD=$(security find-generic-password -a "$USERNAME" -s "$KEYCHAIN_SERVICE" -w)
+
 APIKEY="3176eb0bd0ff5d1c8f15d94e3b3c98a8"      # Change if the script stops working
 APISECRET="2918fac730f44f543d2568f9976ec276"   # Change if the script stops working
 

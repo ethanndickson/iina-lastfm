@@ -20,10 +20,14 @@ You could probably get this working for mpv on other operating systems.
 
 3. Copy the `lastfmscrobbler` folder and the `scripts` folder into `~/.config/mpv/`
 
-4. Open `lastfmscrobbler/scrobble.sh` and modify the following lines with your last.fm login:
+4. Open `lastfmscrobbler/scrobble.sh` and modify the `USERNAME` variable:
 ```
-USERNAME = 'myUsername'
-PASSWORD = 'myPassword'
+USERNAME='lastfmUsername'
+```
+
+5. In a terminal, write your last.fm password to the `login` keychain, under the `com.iina.lastfm` service:
+```
+security add-generic-password -a "lastfmUsername" -s "com.iina.lastfm" -w "mypassword"
 ```
 
 
