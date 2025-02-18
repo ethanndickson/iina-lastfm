@@ -10,7 +10,7 @@ USERNAME='' # CHANGE ME
 
 KEYCHAIN_SERVICE='com.iina.lastfm'
 # Retrieve password from the keychain
-# Ensure you've added it first using `security add-generic-password -a "<lastfmUsername> -s "com.iina.lastfm" -w "<password>"`
+# Ensure you've added it first using `security add-generic-password -a "lastfmUsername" -s "com.iina.lastfm" -w "mypassword"`
 PASSWORD=$(security find-generic-password -a "$USERNAME" -s "$KEYCHAIN_SERVICE" -w)
 
 APIKEY="3176eb0bd0ff5d1c8f15d94e3b3c98a8"      # Change if the script stops working
