@@ -22,8 +22,8 @@ You could probably get this working for mpv on other operating systems.
 
 4. Open `lastfmscrobbler/scrobble.sh` and modify the following lines with your last.fm login:
 ```
-USERNAME = 'myUsername'
-PASSWORD = 'myPassword'
+USERNAME="myUsername"
+PASSWORD="myPassword"
 ```
 
 
